@@ -11,6 +11,9 @@ $(function () {
     $('#contact-form').validator();
 
     $('#contact-form').on('submit', function (e) {
+
+
+        Alert('hello');
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
 
