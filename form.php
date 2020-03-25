@@ -68,7 +68,7 @@
                         </div>
 
 
-                        <input type="submit" class="btn btn-success btn-send" value="Send message">
+                        <input type="submit" class="btn btn-success btn-send" value="Envoyer">
 
                     </div>
 
@@ -86,8 +86,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="validator.js"></script>
-    <script src="contact.js"></script>
+    <script src="javascript/validator.js"></script>
 </body>
 
 
@@ -110,18 +109,10 @@ $(function () {
 
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
-
-
             $.ajax({
                 type: "POST",
                 url: url,
                 data: $(this).serialize(),
-
-
-                name : $("#name").val(),
-                surname : $("#surname").val()
-                email : $("#email").val()
-                message : $("#message").val()
 
                 success: function (data) {
                     var messageAlert = 'alert-' + data.type;

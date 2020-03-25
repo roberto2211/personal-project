@@ -5,7 +5,7 @@ require('recaptcha-master/src/autoload.php');
 
 // include classes
 include_once "config/database.php";
-include_once "objects/profile.php";
+include_once "objects/Form.php";
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
@@ -14,10 +14,10 @@ $db = $database->getConnection();
 
 
 // message that will be displayed when everything is OK :)
-$okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
+$okMessage = 'Formulaire envoyé avec succès. Merci !';
 
 // If something goes wrong, we will display this message.
-$errorMessage = 'There was an error while submitting the form. Please try again later';
+$errorMessage = 'Un problème est survenu lors de l envoi de formulaire. Réessayer';
 
 // ReCaptch Secret
 $recaptchaSecret = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
@@ -63,18 +63,18 @@ try {
                  $ip = $_SERVER['REMOTE_ADDR'];
                  // $date = stripslashes(getdate());
 
-                $profile = new Profile($db);
+                $form = new Form($db);
 
 
                     // set product property values
-                    $profile->firstName = $nom;
-                    $profile->lastName = $prenom;
-                    $profile->email = $mail;
-                    $profile->message = $message;
-                    $profile->ip = $ip;
-                    $profile->created = date('Y-m-d H:i:s');
+                    $form->firstName = $nom;
+                    $form->lastName = $prenom;
+                    $form->email = $mail;
+                    $form->message = $message;
+                    $form->ip = $ip;
+                    $form->created = date('Y-m-d H:i:s');
                  
-                    $profile->save();
+                    $form->save();
 
         $responseArray = array('type' => 'success', 'message' => $okMessage);
     }

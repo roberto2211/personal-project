@@ -10,9 +10,12 @@
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<?php include "header.php"; ?>
+
 <div class="bs-example">
     <div id="myCarousel" class="carousel slide" data-interval="6500" data-ride="carousel">
-    	<!-- Carousel indicators -->
+        <!-- Carousel indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -52,4 +55,4 @@
     </div>
 </div>
 </body>
-</html>                                		
+</html>                                     
