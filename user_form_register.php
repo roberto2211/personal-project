@@ -9,17 +9,17 @@
 
 
 <div class="container register">
-        <div class="row">
+      
 
 
+<form id="_user-form" method="post" action="user_register.php" role="form">
 
-
-<div class="col-md-8 register-right">
+<div class="col-md-12 register-right">
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <h3 class="register-heading">Inscription</h3>
 
-                <form id="_user-form" method="post" action="user_register.php" role="form">
+                
 
                     <div class="controls">
                     <div class="row register-form">
@@ -69,47 +69,15 @@
                           </div>
                     </div>
                  </div>
-                </form>
             </div>
         </div>
         </div>
-        </div>
-        </div>
+    </form>
+</div>
         
-
-
-
+        
 <script src="javascript/validator.js"></script>
 
-<script>
-$(function () {
-    $('#_user-form').validator();
-    $('#_user-form').on('submit', function (e) {
 
-        if (!e.isDefaultPrevented()) {
-            var url = "user_register.php";
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: $(this).serialize(),
-
-                success: function (data) {
-                    var messageAlert = 'alert-' + data.type;
-                    var messageText = data.message;
-
-                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                    if (messageAlert && messageText) {
-                        $('#_user-form').find('.messages').html(alertBox);
-                       // $('#contact-form')[0].reset();
-                        //grecaptcha.reset();
-                    }
-                }
-            });
-            return false;
-        }
-    })
-});
-
-</script>
             
                 

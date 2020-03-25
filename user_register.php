@@ -12,7 +12,7 @@ $db = $database->getConnection();
  
 
 // message that will be displayed when everything is OK :)
-$okMessage = 'Formulaire envoyé avec succès. Merci !';
+$okMessage = 'Enregistrement reussi, connectez vous !';
 
 
 
@@ -56,6 +56,8 @@ if (isset($_POST['firstname']) && !empty($_POST['firstname']) && isset($_POST['l
 
     }
 
+
+
     else {
     	            throw new \Exception('Données incomplètes');
         }
@@ -74,3 +76,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     echo $responseArray['message'];
 }
 
+
+if ($okMessage){
+	header("location:form.php"); 
+}
